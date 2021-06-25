@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope='col'>Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in history %}
+            <tr>
+                <td>{{ item.symbol }}</td>
+                <td>{{ item.shares }}</td>
+                <td>{{ usd(item.price) }}</td>
+                <td>{{ item.transacted }}</td>
+            {% endfor %}
+            </tr>
+        </tbody>
+
+    </table>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <h2>A share of {{ quote_info_dict['name'] }} ({{ quote_info_dict['symbol'] }}) costs {{ quote_info_dict['price'] | usd }}</h1>
+{% endblock %}

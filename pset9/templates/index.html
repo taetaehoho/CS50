@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Name</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope='col'>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                {% if transaction.shares > 0 %}
+            <tr>
+                <td>{{ transaction.symbol }}</td>
+                <td>{{ transaction.name }}</td>
+                <td>{{ transaction.shares }}</td>
+                <td>{{ usd(transaction.price) }}</td>
+                <td>{{ usd(transaction.Total) }}</td>
+                {% endif %}
+            {% endfor %}
+            </tr>
+            <tr>
+                <td>Cash</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ cash }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style='font-weight: bold;'>{{ total }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+{% endblock %}
